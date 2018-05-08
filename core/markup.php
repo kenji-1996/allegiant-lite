@@ -109,7 +109,7 @@ if ( ! function_exists( 'cpotheme_logo' ) ) {
 				$output .= '<a class="site-logo" href="' . home_url() . '"><img src="' . get_template_directory_uri() . '/images/logo.png" alt="' . get_bloginfo( 'name' ) . '" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '"/></a>';
 			} else {
 				$logo_width = cpotheme_get_option( 'general_logo_width' );
-				$logo_url   = esc_url( cpotheme_get_option( 'general_logo' ) );
+				$logo_url = preg_replace("/^http:/i", "https:",esc_url( cpotheme_get_option( 'general_logo' ) ));
 				if ( '' != $logo_width ) {
 					$logo_width = ' style="width:' . esc_attr( $logo_width ) . 'px;"';
 				}
